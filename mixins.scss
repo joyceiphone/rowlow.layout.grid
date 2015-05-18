@@ -1,0 +1,94 @@
+@mixin rowlow-column($current-column, $total-columns){
+	$width:			rowlow-column-width($current-column, $total-columns);
+	display:		block;
+	float:			left;
+	box-sizing: 	border-box;
+	width:			$width;
+	*width:			$width - 0.0694%; /* IE6 & IE7 Subpixel-Fix */
+}
+
+@mixin rowlow-column-push($current-column, $total-columns){
+	$width:			rowlow-column-width($current-column, $total-columns);
+	position: 		relative;
+	left: 			$width;
+}
+
+@mixin rowlow-column-pull($current-column, $total-columns){
+	$width:			rowlow-column-width($current-column, $total-columns);
+	position: 		relative;
+	right: 			$width;
+}
+
+@mixin rowlow-column-offset($current-column, $total-columns){
+	$width:			rowlow-column-width($current-column, $total-columns);
+	margin-left: 	$width;
+}
+
+
+@mixin rowlow-build-column($breakpoint, $total-columns, $current-column: $total-columns) {
+	@if $current-column > 0{
+		.#{$rowlow-grid-namespace}column--#{$breakpoint}--#{$current-column}of#{$total-columns}{
+			@include rowlow-column($current-column, $total-columns);
+		}
+		@include rowlow-build-column($breakpoint, $total-columns, $current-column - 1);
+	}
+}
+
+@mixin rowlow-build-column-push($breakpoint, $total-columns, $current-column: $total-columns) {
+	@if $current-column >= 0{
+		.#{$rowlow-grid-namespace}column-push--#{$breakpoint}--#{$current-column}of#{$total-columns}{
+			@include rowlow-column-push($current-column, $total-columns);
+		}
+		@include rowlow-build-column-push($breakpoint, $total-columns, $current-column - 1);
+	}
+}
+
+@mixin rowlow-build-column-pull($breakpoint, $total-columns, $current-column: $total-columns) {
+	@if $current-column >= 0{
+		.#{$rowlow-grid-namespace}column-pull--#{$breakpoint}--#{$current-column}of#{$total-columns}{
+			@include rowlow-column-pull($current-column, $total-columns);
+		}
+		@include rowlow-build-column-pull($breakpoint, $total-columns, $current-column - 1);
+	}
+}
+
+@mixin rowlow-build-column-offset($breakpoint, $total-columns, $current-column: $total-columns) {
+	@if $current-column >= 0{
+		.#{$rowlow-grid-namespace}column-offset--#{$breakpoint}--#{$current-column}of#{$total-columns}{
+			@include rowlow-column-offset($current-column, $total-columns);
+		}
+		@include rowlow-build-column-offset($breakpoint, $total-columns, $current-column - 1);
+	}
+}
+
+@mixin rowlow-build-padding($breakpoint, $times){
+	@if $times >= 0{
+		.#{$rowlow-grid-namespace}padding--#{$breakpoint}--#{$times}{
+			@extend .padding-vertical--#{$breakpoint}--#{$times};
+			@extend .padding-horizontal--#{$breakpoint}--#{$times};
+		}
+		.#{$rowlow-grid-namespace}padding-vertical--#{$breakpoint}--#{$times}{
+			@extend .padding-top--#{$breakpoint}--#{$times};
+			@extend .padding-bottom--#{$breakpoint}--#{$times};
+		}
+		.#{$rowlow-grid-namespace}padding-horizontal--#{$breakpoint}--#{$times}{
+			@extend .padding-left--#{$breakpoint}--#{$times};
+			@extend .padding-right--#{$breakpoint}--#{$times};
+		}
+		.#{$rowlow-grid-namespace}padding-left--#{$breakpoint}--#{$times}{
+			padding-left: rowlow-padding($times);
+		}
+		.#{$rowlow-grid-namespace}padding-right--#{$breakpoint}--#{$times}{
+			padding-right: rowlow-padding($times);
+		}
+		.#{$rowlow-grid-namespace}padding-top--#{$breakpoint}--#{$times}{
+			padding-top: rowlow-padding($times);
+		}
+		.#{$rowlow-grid-namespace}padding-bottom--#{$breakpoint}--#{$times}{
+			padding-bottom: rowlow-padding($times);
+		}
+
+		@include rowlow-build-padding($breakpoint, $times - 1);
+	}
+}
+
