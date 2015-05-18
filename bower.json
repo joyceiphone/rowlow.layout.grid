@@ -1,0 +1,22 @@
+{
+  "name": "rowlow.layout.responsive-grid",
+  "version": "0.1.0",
+  "homepage": "http://rowlow.github.io/",
+  "authors": [
+    "Roland Lösslein <info@weaintplastic.com>"
+  ],
+  "description": "Responsive grid component for rowlow framework",
+  "keywords": [
+    "rowlow",
+    "grid",
+    "responsive"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
