@@ -1,0 +1,7 @@
+@function rowlow-padding($times) {
+	@return $rowlow-grid-gutter * $times * .5px;
+}
+
+@function rowlow-column-width($current-column, $total-columns) {
+	@return $current-column/$total-columns * 100%;
+}
