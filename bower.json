@@ -5,18 +5,18 @@
   "authors": [
     "Roland Lösslein <info@weaintplastic.com>"
   ],
-  "description": "Responsive grid component for rowlow framework",
+  "description": "Responsive grid for ROW LOW framework",
   "keywords": [
-    "rowlow",
     "grid",
-    "responsive"
+    "responsive",
+    "rowlow"
   ],
   "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ]
+  "ignore": [],
+  "main": "main.scss",
+  "dependencies": {
+    "rowlow.settings.default": "~0.1.2",
+    "rowlow.utils.clearfix": "~0.1.0",
+    "rowlow.utils.breakpoints": "~0.1.0"
+  }
 }
