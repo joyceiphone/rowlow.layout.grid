@@ -61,34 +61,34 @@
 	}
 }
 
-@mixin rowlow-build-padding($breakpoint, $times){
+@mixin rowlow-build-gutter($breakpoint, $times){
 	@if $times >= 0{
-		.#{$rowlow-grid-namespace}padding--#{$breakpoint}--#{$times}{
-			@extend .padding-vertical--#{$breakpoint}--#{$times};
-			@extend .padding-horizontal--#{$breakpoint}--#{$times};
+		.#{$rowlow-grid-namespace}gutter--#{$breakpoint}--#{$times}{
+			@extend .gutter-vertical--#{$breakpoint}--#{$times};
+			@extend .gutter-horizontal--#{$breakpoint}--#{$times};
 		}
-		.#{$rowlow-grid-namespace}padding-vertical--#{$breakpoint}--#{$times}{
-			@extend .padding-top--#{$breakpoint}--#{$times};
-			@extend .padding-bottom--#{$breakpoint}--#{$times};
+		.#{$rowlow-grid-namespace}gutter-vertical--#{$breakpoint}--#{$times}{
+			@extend .gutter-top--#{$breakpoint}--#{$times};
+			@extend .gutter-bottom--#{$breakpoint}--#{$times};
 		}
-		.#{$rowlow-grid-namespace}padding-horizontal--#{$breakpoint}--#{$times}{
-			@extend .padding-left--#{$breakpoint}--#{$times};
-			@extend .padding-right--#{$breakpoint}--#{$times};
+		.#{$rowlow-grid-namespace}gutter-horizontal--#{$breakpoint}--#{$times}{
+			@extend .gutter-left--#{$breakpoint}--#{$times};
+			@extend .gutter-right--#{$breakpoint}--#{$times};
 		}
-		.#{$rowlow-grid-namespace}padding-left--#{$breakpoint}--#{$times}{
-			padding-left: rowlow-padding($times);
+		.#{$rowlow-grid-namespace}gutter-left--#{$breakpoint}--#{$times}{
+			padding-left: rowlow-gutter($times);
 		}
-		.#{$rowlow-grid-namespace}padding-right--#{$breakpoint}--#{$times}{
-			padding-right: rowlow-padding($times);
+		.#{$rowlow-grid-namespace}gutter-right--#{$breakpoint}--#{$times}{
+			padding-right: rowlow-gutter($times);
 		}
-		.#{$rowlow-grid-namespace}padding-top--#{$breakpoint}--#{$times}{
-			padding-top: rowlow-padding($times);
+		.#{$rowlow-grid-namespace}gutter-top--#{$breakpoint}--#{$times}{
+			padding-top: rowlow-gutter($times);
 		}
-		.#{$rowlow-grid-namespace}padding-bottom--#{$breakpoint}--#{$times}{
-			padding-bottom: rowlow-padding($times);
+		.#{$rowlow-grid-namespace}gutter-bottom--#{$breakpoint}--#{$times}{
+			padding-bottom: rowlow-gutter($times);
 		}
 
-		@include rowlow-build-padding($breakpoint, $times - 1);
+		@include rowlow-build-gutter($breakpoint, $times - 1);
 	}
 }
 

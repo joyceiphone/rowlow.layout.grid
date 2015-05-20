@@ -15,7 +15,7 @@
 			@include rowlow-build-column-push($breakpoint-name, $rowlow-grid-column);
 			@include rowlow-build-column-pull($breakpoint-name, $rowlow-grid-column);
 			@include rowlow-build-column-offset($breakpoint-name, $rowlow-grid-column);
-			@include rowlow-build-padding($breakpoint-name, 30);
+			@include rowlow-build-gutter($breakpoint-name, 30);
 		}
 
 		
