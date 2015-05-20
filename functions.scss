@@ -1,4 +1,4 @@
-@function rowlow-padding($times) {
+@function rowlow-gutter($times) {
 	@return $rowlow-grid-gutter * $times * .5px;
 }
 
